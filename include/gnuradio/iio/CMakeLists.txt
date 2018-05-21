@@ -28,5 +28,6 @@ install(FILES
 	pluto_source.h pluto_sink.h
 	converter_ss.h math.h power_ff.h
 	modulo_ff.h modulo_const_ff.h
+	ad9371_source.h ad9371_sink.h
 	DESTINATION ${GR_INCLUDE_DIR}/gnuradio/iio
 )

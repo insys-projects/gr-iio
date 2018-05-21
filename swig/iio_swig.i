@@ -15,6 +15,8 @@
 #include "gnuradio/iio/power_ff.h"
 #include "gnuradio/iio/modulo_ff.h"
 #include "gnuradio/iio/modulo_const_ff.h"
+#include "gnuradio/iio/ad9371_source.h"
+#include "gnuradio/iio/ad9371_sink.h"
 %}
 
 %include "gnuradio/iio/device_source.h"
@@ -27,6 +29,8 @@
 %include "gnuradio/iio/power_ff.h"
 %include "gnuradio/iio/modulo_ff.h"
 %include "gnuradio/iio/modulo_const_ff.h"
+%include "gnuradio/iio/ad9371_source.h"
+%include "gnuradio/iio/ad9371_sink.h"
 
 GR_SWIG_BLOCK_MAGIC2(iio, device_source);
 GR_SWIG_BLOCK_MAGIC2(iio, device_sink);
@@ -43,3 +47,7 @@ GR_SWIG_BLOCK_MAGIC2(iio, iio_math_gen);
 GR_SWIG_BLOCK_MAGIC2(iio, power_ff);
 GR_SWIG_BLOCK_MAGIC2(iio, modulo_ff);
 GR_SWIG_BLOCK_MAGIC2(iio, modulo_const_ff);
+GR_SWIG_BLOCK_MAGIC2(iio, ad9371_source);
+GR_SWIG_BLOCK_MAGIC2(iio, ad9371_source_f32c);
+GR_SWIG_BLOCK_MAGIC2(iio, ad9371_sink);
+GR_SWIG_BLOCK_MAGIC2(iio, ad9371_sink_f32c);

@@ -48,6 +48,8 @@ list(APPEND iio_sources
 	iio_power_ff_impl.cc
 	iio_modulo_ff_impl.cc
 	iio_modulo_const_ff_impl.cc
+	ad9371_source_impl.cc
+	ad9371_sink_impl.cc
 	${FLEX_lexer_OUTPUTS}
 	${BISON_parser_OUTPUTS}
 )

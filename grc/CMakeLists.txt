@@ -24,5 +24,6 @@ install(FILES
 	iio_pluto_source.xml iio_pluto_sink.xml
 	iio_math.xml iio_math_gen.xml iio_power_ff.xml
 	iio_modulo_ff.xml iio_modulo_const_ff.xml
+	iio_ad9371_source.xml iio_ad9371_sink.xml
 	DESTINATION share/gnuradio/grc/blocks
 )
