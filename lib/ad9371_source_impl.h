@@ -48,7 +48,7 @@ namespace gr {
 		    bool bbdc, const char *gain1, double gain1_value,
 		    const char *gain2, double gain2_value,
 		    const char *rf_port_select, const char *filter,
-		    bool auto_filter);
+		    bool auto_filter, const char *params);
 
       void set_params(unsigned long long frequency,
 		      unsigned long samplerate, unsigned long bandwidth,
@@ -57,7 +57,7 @@ namespace gr {
 		      const char *gain2, double gain2_value,
 		      const char *rf_port_select,
 		      const char *filter,
-		      bool auto_filter);
+		      bool auto_filter, const char *params);
     };
 
   } // namespace iio

@@ -79,6 +79,9 @@ namespace gr {
       static void set_params(struct iio_device *phy,
 		      const std::vector<std::string> &params);
 
+	  static void parse_params(const char *params_str,
+		  std::vector<std::string> &params);
+
       void set_params(const std::vector<std::string> &params);
       void set_buffer_size(unsigned int buffer_size);
       void set_timeout_ms(unsigned long timeout);

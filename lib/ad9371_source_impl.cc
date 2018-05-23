@@ -73,7 +73,7 @@ namespace gr {
 		    bool bbdc, const char *gain1, double gain1_value,
 		    const char *gain2, double gain2_value,
 		    const char *port_select, const char *filter,
-		    bool auto_filter)
+		    bool auto_filter, const char *params)
     {
       return gnuradio::get_initial_sptr
         (new ad9371_source_impl(device_source_impl::get_context(uri), true,
@@ -81,7 +81,7 @@ namespace gr {
 				  ch1_en, ch2_en, ch3_en, ch4_en, buffer_size,
 				  quadrature, rfdc, bbdc, gain1, gain1_value,
 				  gain2, gain2_value, port_select, filter,
-				  auto_filter));
+				  auto_filter, params));
     }
 
     ad9371_source::sptr
@@ -93,7 +93,7 @@ namespace gr {
 		    bool bbdc, const char *gain1, double gain1_value,
 		    const char *gain2, double gain2_value,
 		    const char *port_select, const char *filter,
-		    bool auto_filter)
+		    bool auto_filter, const char *params)
     {
       return gnuradio::get_initial_sptr
         (new ad9371_source_impl(ctx, false, frequency, samplerate,
@@ -101,7 +101,7 @@ namespace gr {
 				  ch1_en, ch2_en, ch3_en, ch4_en, buffer_size,
 				  quadrature, rfdc, bbdc, gain1, gain1_value,
 				  gain2, gain2_value, port_select, filter,
-				  auto_filter));
+				  auto_filter, params));
     }
 
     std::vector<std::string> ad9371_source_impl::get_channels_vector(
@@ -128,7 +128,7 @@ namespace gr {
 		    bool bbdc, const char *gain1, double gain1_value,
 		    const char *gain2, double gain2_value,
 		    const char *port_select, const char *filter,
-		    bool auto_filter)
+		    bool auto_filter, const char *params)
       : gr::sync_block("ad9371_source",
               gr::io_signature::make(0, 0, 0),
               gr::io_signature::make(1, -1, sizeof(short)))
@@ -139,7 +139,7 @@ namespace gr {
     {
 	    set_params(frequency, samplerate, bandwidth, quadrature, rfdc, bbdc,
 			    gain1, gain1_value, gain2, gain2_value,
-			    port_select, filter, auto_filter);
+			    port_select, filter, auto_filter, params);
     }
 
     void ad9371_source_impl::set_params(unsigned long long frequency,
@@ -148,7 +148,7 @@ namespace gr {
 		    const char *gain1, double gain1_value,
 		    const char *gain2, double gain2_value,
 		    const char *port_select, const char *filter,
-		    bool auto_filter)
+		    bool auto_filter, const char *params_str)
     {
 	    bool is_fmcomms4 = !iio_device_find_channel(phy, "voltage1", false);
 	    std::vector<std::string> params;
@@ -189,6 +189,8 @@ namespace gr {
 
 	    params.push_back("in_voltage0_rf_port_select=" +
 			    boost::to_string(port_select));
+
+		device_source_impl::parse_params(params_str, params);
 
 	    device_source_impl::set_params(params);
 

@@ -5,8 +5,8 @@
 	<category>[Industrial IO]/AD9371</category>
 	<flags>throttle</flags>
 	<import>from gnuradio import iio</import>
-	<make>iio.ad9371_source_f32c($uri, $frequency, $samplerate, $bandwidth, $rx1_en, $rx2_en, $buffer_size, $quadrature, $rfdc, $bbdc, $gain1, $manual_gain1, $gain2, $manual_gain2, $rf_port_select, $filter, $auto_filter)</make>
-	<callback>set_params($frequency, $samplerate, $bandwidth, $quadrature, $rfdc, $bbdc, $gain1, $manual_gain1, $gain2, $manual_gain2, $rf_port_select, $filter, $auto_filter)</callback>
+	<make>iio.ad9371_source_f32c($uri, $frequency, $samplerate, $bandwidth, $rx1_en, $rx2_en, $buffer_size, $quadrature, $rfdc, $bbdc, $gain1, $manual_gain1, $gain2, $manual_gain2, $rf_port_select, $filter, $auto_filter, $params)</make>
+	<callback>set_params($frequency, $samplerate, $bandwidth, $quadrature, $rfdc, $bbdc, $gain1, $manual_gain1, $gain2, $manual_gain2, $rf_port_select, $filter, $auto_filter, $params)</callback>
 
 	<param>
 		<name>IIO context URI</name>
@@ -216,6 +216,13 @@
 		<type>enum</type>
 		<option><name>True</name><key>True</key></option>
 		<option><name>False</name><key>False</key></option>
+	</param>
+	
+	<param>
+		<name>Parameters</name>
+		<key>params</key>
+		<value></value>
+		<type>string</type>
 	</param>
 
 	<check>sum([$rx1_en, $rx2_en]) &gt; 0</check>

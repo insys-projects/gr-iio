@@ -101,6 +101,24 @@ namespace gr {
 	    }
     }
 
+	void device_source_impl::parse_params(const char *params_str,
+		std::vector<std::string> &params)
+	{
+		std::string sParams = params_str;
+
+		int nLen = sParams.find(',');
+
+		while(nLen != std::string::npos)
+		{
+			params.push_back(sParams.substr(0, nLen));
+			sParams.erase(0, nLen + 1);
+			nLen = sParams.find(',');
+		}
+
+		if(sParams.length() != 0)
+			params.push_back(sParams);
+	}
+
     void device_source_impl::set_params(const std::vector<std::string> &params)
     {
 	    set_params(this->phy, params);

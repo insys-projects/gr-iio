@@ -5,8 +5,8 @@
 	<category>[Industrial IO]/AD9371</category>
 	<flags>throttle</flags>
 	<import>from gnuradio import iio</import>
-	<make>iio.ad9371_sink_f32c($uri, $frequency, $samplerate, $bandwidth, $tx1_en, $tx2_en, $buffer_size, $cyclic, $rf_port_select, $attenuation1, $attenuation2, $filter, $auto_filter)</make>
-	<callback>set_params($frequency, $samplerate, $bandwidth, $rf_port_select, $attenuation1, $attenuation2, $filter, $auto_filter)</callback>
+	<make>iio.ad9371_sink_f32c($uri, $frequency, $samplerate, $bandwidth, $tx1_en, $tx2_en, $buffer_size, $cyclic, $rf_port_select, $attenuation1, $attenuation2, $filter, $auto_filter, $params)</make>
+	<callback>set_params($frequency, $samplerate, $bandwidth, $rf_port_select, $attenuation1, $attenuation2, $filter, $auto_filter, $params)</callback>
 
 	<param>
 		<name>IIO context URI</name>
@@ -112,6 +112,13 @@
 		<type>enum</type>
 		<option><name>True</name><key>True</key></option>
 		<option><name>False</name><key>False</key></option>
+	</param>
+	
+	<param>
+		<name>Parameters</name>
+		<key>params</key>
+		<value></value>
+		<type>string</type>
 	</param>
 
 

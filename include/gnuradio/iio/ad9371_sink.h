@@ -44,7 +44,7 @@ namespace gr {
 		    unsigned long buffer_size, bool cyclic,
 		    const char *rf_port_select, double attenuation1,
 		    double attenuation2, const char *filter = "",
-		    bool auto_filter = true);
+		    bool auto_filter = true, const char *params = "");
 
       static sptr make_from(struct iio_context *ctx,
 		    unsigned long long frequency, unsigned long samplerate,
@@ -53,13 +53,13 @@ namespace gr {
 		    unsigned long buffer_size, bool cyclic,
 		    const char *rf_port_select, double attenuation1,
 		    double attenuation2, const char *filter = "",
-		    bool auto_filter = true);
+		    bool auto_filter = true, const char *params = "");
 
       virtual void set_params(unsigned long long frequency,
 		      unsigned long samplerate, unsigned long bandwidth,
 		      const char *rf_port_select, double attenuation1,
 		      double attenuation2, const char *filter = "",
-		      bool auto_filter = true) = 0;
+		      bool auto_filter = true, const char *params = "") = 0;
     };
 
     class IIO_API ad9371_sink_f32c : virtual public gr::hier_block2
@@ -73,13 +73,13 @@ namespace gr {
 		    unsigned long buffer_size, bool cyclic,
 		    const char *rf_port_select, double attenuation1,
 		    double attenuation2, const char *filter = "",
-		    bool auto_filter = true)
+		    bool auto_filter = true, const char *params = "")
       {
 	      ad9371_sink::sptr block = ad9371_sink::make(uri, frequency,
 			      samplerate, bandwidth, rx1_en,
 			      rx1_en, rx2_en, rx2_en, buffer_size, cyclic,
 			      rf_port_select, attenuation1, attenuation2,
-			      filter, auto_filter);
+				  filter, auto_filter, params);
 
 	      return gnuradio::get_initial_sptr(
 			      new ad9371_sink_f32c(rx1_en, rx2_en, block));
@@ -89,11 +89,11 @@ namespace gr {
 		      unsigned long samplerate, unsigned long bandwidth,
 		      const char *rf_port_select, double attenuation1,
 		      double attenuation2, const char *filter = "",
-		      bool auto_filter = true)
+		      bool auto_filter = true, const char *params = "")
       {
 	      ad9371_block->set_params(frequency, samplerate, bandwidth,
 			      rf_port_select, attenuation1, attenuation2,
-			      filter, auto_filter);
+				  filter, auto_filter, params);
       }
 
     private:
